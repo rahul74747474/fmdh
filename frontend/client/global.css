@@ -1,0 +1,225 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Dark Hunters Theme - Premium dark fantasy dashboard
+   * Color palette inspired by Dark Hunters emblem
+   */
+  :root {
+    /* Dark fantasy backgrounds */
+    --background: 210 9% 6%;
+    --foreground: 210 13% 98%;
+
+    --card: 210 9% 8%;
+    --card-foreground: 210 13% 98%;
+
+    --popover: 210 9% 8%;
+    --popover-foreground: 210 13% 98%;
+
+    /* Gold accent */
+    --primary: 41 78% 51%;
+    --primary-foreground: 210 9% 6%;
+
+    /* Secondary brass */
+    --secondary: 38 28% 36%;
+    --secondary-foreground: 210 13% 98%;
+
+    /* Steel gray */
+    --muted: 206 8% 44%;
+    --muted-foreground: 210 13% 98%;
+
+    /* Accent gold */
+    --accent: 41 78% 51%;
+    --accent-foreground: 210 9% 6%;
+
+    /* Destructive red */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 13% 98%;
+
+    /* Borders and inputs */
+    --border: 206 8% 24%;
+    --input: 210 9% 12%;
+    --ring: 41 78% 51%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar */
+    --sidebar-background: 210 9% 6%;
+    --sidebar-foreground: 210 13% 98%;
+    --sidebar-primary: 41 78% 51%;
+    --sidebar-primary-foreground: 210 9% 6%;
+    --sidebar-accent: 210 9% 16%;
+    --sidebar-accent-foreground: 41 78% 51%;
+    --sidebar-border: 206 8% 20%;
+    --sidebar-ring: 41 78% 51%;
+  }
+
+  .dark {
+    --background: 210 9% 6%;
+    --foreground: 210 13% 98%;
+
+    --card: 210 9% 8%;
+    --card-foreground: 210 13% 98%;
+
+    --popover: 210 9% 8%;
+    --popover-foreground: 210 13% 98%;
+
+    --primary: 41 78% 51%;
+    --primary-foreground: 210 9% 6%;
+
+    --secondary: 38 28% 36%;
+    --secondary-foreground: 210 13% 98%;
+
+    --muted: 206 8% 44%;
+    --muted-foreground: 210 13% 98%;
+
+    --accent: 41 78% 51%;
+    --accent-foreground: 210 9% 6%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 13% 98%;
+
+    --border: 206 8% 24%;
+    --input: 210 9% 12%;
+    --ring: 41 78% 51%;
+
+    --sidebar-background: 210 9% 6%;
+    --sidebar-foreground: 210 13% 98%;
+    --sidebar-primary: 41 78% 51%;
+    --sidebar-primary-foreground: 210 9% 6%;
+    --sidebar-accent: 210 9% 16%;
+    --sidebar-accent-foreground: 41 78% 51%;
+    --sidebar-border: 206 8% 20%;
+    --sidebar-ring: 41 78% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  h1 {
+    @apply text-3xl font-bold tracking-tight text-white;
+  }
+
+  h2 {
+    @apply text-2xl font-bold tracking-tight text-white;
+  }
+
+  h3 {
+    @apply text-lg font-semibold text-white;
+  }
+}
+
+/* Gold glow effects */
+@layer components {
+  .glow-gold {
+    @apply shadow-[0_0_20px_rgba(197,167,106,0.5)];
+  }
+
+  .glow-gold-md {
+    @apply shadow-[0_0_30px_rgba(197,167,106,0.6)];
+  }
+
+  .glow-gold-lg {
+    @apply shadow-[0_0_40px_rgba(197,167,106,0.7)];
+  }
+
+  .border-gold-glow {
+    @apply border border-primary shadow-[0_0_15px_rgba(197,167,106,0.4)];
+  }
+
+  .border-gold-glow-lg {
+    @apply border border-primary shadow-[0_0_25px_rgba(197,167,106,0.5)];
+  }
+
+  .gold-underline {
+    @apply border-b-2 border-primary pb-2;
+  }
+}
+
+/* Animations */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 15px rgba(197, 167, 106, 0.6));
+  }
+  50% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 25px rgba(197, 167, 106, 0.8));
+  }
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes rotate-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-bar-fill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@layer utilities {
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-float-up {
+    animation: float-up 2s ease-out infinite;
+  }
+
+  .animate-rotate-ring {
+    animation: rotate-ring 3s linear infinite;
+  }
+
+  .animate-loading-bar {
+    animation: loading-bar-fill 2s ease-in-out infinite;
+  }
+}
